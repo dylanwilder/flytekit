@@ -104,7 +104,7 @@ class EntrypointSettings(object):
     version: int = 0
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=True)
 class SerializationSettings(object):
     """
     These settings are provided while serializing a workflow and task, before registration. This is required to get
@@ -121,7 +121,7 @@ class SerializationSettings(object):
     entrypoint_settings: Optional[EntrypointSettings] = None
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=True)
 class CompilationState(object):
     """
     Compilation state is used during the compilation of a workflow or task. It stores the nodes that were
@@ -168,7 +168,7 @@ class BranchEvalMode(Enum):
     BRANCH_SKIPPED = "branch skipped"
 
 
-@dataclass(init=False)
+@dataclass(init=False, repr=True)
 class ExecutionState(object):
     """
     This is the context that is active when executing a task or a local workflow. This carries the necessary state to
@@ -259,7 +259,7 @@ class ExecutionState(object):
         )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=True)
 class FlyteContext(object):
     """
     Top level context for FlyteKit. maintains information that is required either to compile or execute a
