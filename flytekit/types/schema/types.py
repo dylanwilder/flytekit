@@ -24,6 +24,12 @@ class SchemaFormat(Enum):
     """
 
     PARQUET = "parquet"
+
+    # TODO adding a plugin should not require patch core flytekit but
+    # currently there is not way to extend an Enum in python. Maybe we can
+    # expand on this model by adding supported format registry 
+    BQ = "bigquery"
+    
     # ARROW = "arrow"
     # HDF5 = "hdf5"
     # CSV = "csv"
